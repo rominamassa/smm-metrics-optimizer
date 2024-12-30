@@ -18,11 +18,17 @@
         .sharing-interface a {
             margin: 0 15px;
             text-decoration: none;
-            color: #000;
         }
-        .fiverr-embed {
-            text-align: center;
-            margin: 40px 0;
+        .sharing-interface img {
+            width: 30px;
+            height: 30px;
+            margin: 0 10px;
+        }
+        .fiverr-embed img {
+            width: 400px;
+            height: auto;
+            border-radius: 10px;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -46,10 +52,18 @@
 
         <!-- Sharing Interface (Top) -->
         <div class="sharing-interface">
-            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://smm-metrics-optimizer.herokuapp.com" target="_blank">Share on LinkedIn</a>
-            <a href="https://www.facebook.com/sharer/sharer.php?u=https://smm-metrics-optimizer.herokuapp.com" target="_blank">Share on Facebook</a>
-            <a href="https://twitter.com/intent/tweet?url=https://smm-metrics-optimizer.herokuapp.com&text=Check%20out%20this%20awesome%20Social%20Media%20Metrics%20Calculator!" target="_blank">Share on X</a>
-            <a href="mailto:?subject=Social%20Media%20Metrics%20Calculator&body=Check%20out%20this%20awesome%20tool:%20https://smm-metrics-optimizer.herokuapp.com" target="_blank">Share via Email</a>
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://smm-metrics-optimizer.herokuapp.com" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/145/145807.png" alt="Share on LinkedIn">
+            </a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://smm-metrics-optimizer.herokuapp.com" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/145/145802.png" alt="Share on Facebook">
+            </a>
+            <a href="https://twitter.com/intent/tweet?url=https://smm-metrics-optimizer.herokuapp.com&text=Check%20out%20this%20awesome%20Social%20Media%20Metrics%20Calculator!" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Share on X">
+            </a>
+            <a href="mailto:?subject=Social%20Media%20Metrics%20Calculator&body=Check%20out%20this%20awesome%20tool:%20https://smm-metrics-optimizer.herokuapp.com" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Share via Email">
+            </a>
         </div>
 
         <!-- Organic Metrics Section -->
@@ -65,42 +79,42 @@
                     </tr>
                     <tr>
                         <td>Reach</td>
-                        <td><input type="number" id="reach" name="reach" class="input-field" value="{{ form_data.reach or '' }}"></td>
+                        <td><input type="number" id="reach" name="reach" class="input-field"></td>
                         <td>Total unique users who saw your content.</td>
                     </tr>
                     <tr>
                         <td>Impressions</td>
-                        <td><input type="number" id="impressions" name="impressions" class="input-field" value="{{ form_data.impressions or '' }}"></td>
+                        <td><input type="number" id="impressions" name="impressions" class="input-field"></td>
                         <td>Total times your content was displayed.</td>
                     </tr>
                     <tr>
                         <td>Followers</td>
-                        <td><input type="number" id="followers" name="followers" class="input-field" value="{{ form_data.followers or '' }}"></td>
+                        <td><input type="number" id="followers" name="followers" class="input-field"></td>
                         <td>Number of account followers.</td>
                     </tr>
                     <tr>
                         <td>Likes</td>
-                        <td><input type="number" id="likes" name="likes" class="input-field" value="{{ form_data.likes or '' }}"></td>
+                        <td><input type="number" id="likes" name="likes" class="input-field"></td>
                         <td>Total likes on your content.</td>
                     </tr>
                     <tr>
                         <td>Comments</td>
-                        <td><input type="number" id="comments" name="comments" class="input-field" value="{{ form_data.comments or '' }}"></td>
+                        <td><input type="number" id="comments" name="comments" class="input-field"></td>
                         <td>Total comments on your content.</td>
                     </tr>
                     <tr>
                         <td>Shares</td>
-                        <td><input type="number" id="shares" name="shares" class="input-field" value="{{ form_data.shares or '' }}"></td>
+                        <td><input type="number" id="shares" name="shares" class="input-field"></td>
                         <td>Total shares of your content.</td>
                     </tr>
                     <tr>
                         <td>Saves</td>
-                        <td><input type="number" id="saves" name="saves" class="input-field" value="{{ form_data.saves or '' }}"></td>
+                        <td><input type="number" id="saves" name="saves" class="input-field"></td>
                         <td>Total saves of your content.</td>
                     </tr>
                     <tr>
                         <td>Link Clicks</td>
-                        <td><input type="number" id="link_clicks" name="link_clicks" class="input-field" value="{{ form_data.link_clicks or '' }}"></td>
+                        <td><input type="number" id="link_clicks" name="link_clicks" class="input-field"></td>
                         <td>Total link clicks on your content.</td>
                     </tr>
                 </table>
@@ -119,15 +133,9 @@
 
         <!-- Fiverr Gig Embed -->
         <div class="fiverr-embed">
-            <iframe 
-                src="https://www.fiverr.com/s/wk9lV5B" 
-                loading="lazy" 
-                class="fiverr_nga_frame" 
-                frameborder="0" 
-                height="350" 
-                width="100%" 
-                referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
+            <a href="https://www.fiverr.com/s/wk9lV5B" target="_blank">
+                <img src="/static/images/fiverr_gig.jpg" alt="Check out my Fiverr gig">
+            </a>
         </div>
 
         <!-- Paid Metrics Section -->
@@ -144,7 +152,7 @@
                     <tr>
                         <td>Impressions</td>
                         <td><input type="number" id="paid_impressions" name="paid_impressions"></td>
-                        <td>Total impressions.</td>
+                        <td>Total ad/ad set/campaign impressions.</td>
                     </tr>
                     <tr>
                         <td>Clicks</td>
@@ -177,13 +185,20 @@
 
         <!-- Sharing Interface (Bottom) -->
         <div class="sharing-interface">
-            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://smm-metrics-optimizer.herokuapp.com" target="_blank">Share on LinkedIn</a>
-            <a href="https://www.facebook.com/sharer/sharer.php?u=https://smm-metrics-optimizer.herokuapp.com" target="_blank">Share on Facebook</a>
-            <a href="https://twitter.com/intent/tweet?url=https://smm-metrics-optimizer.herokuapp.com&text=Check%20out%20this%20awesome%20Social%20Media%20Metrics%20Calculator!" target="_blank">Share on X</a>
-            <a href="mailto:?subject=Social%20Media%20Metrics%20Calculator&body=Check%20out%20this%20awesome%20tool:%20https://smm-metrics-optimizer.herokuapp.com" target="_blank">Share via Email</a>
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://smm-metrics-optimizer.herokuapp.com" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/145/145807.png" alt="Share on LinkedIn">
+            </a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://smm-metrics-optimizer.herokuapp.com" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/145/145802.png" alt="Share on Facebook">
+            </a>
+            <a href="https://twitter.com/intent/tweet?url=https://smm-metrics-optimizer.herokuapp.com&text=Check%20out%20this%20awesome%20Social%20Media%20Metrics%20Calculator!" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Share on X">
+            </a>
+            <a href="mailto:?subject=Social%20Media%20Metrics%20Calculator&body=Check%20out%20this%20awesome%20tool:%20https://smm-metrics-optimizer.herokuapp.com" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Share via Email">
+            </a>
         </div>
     </div>
 </body>
 </html>
-
 
