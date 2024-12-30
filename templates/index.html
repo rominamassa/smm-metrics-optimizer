@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Metrics Calculator: Organic and Paid</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Social Media Metrics Calculator: Organic and Paid</h1>
+        <p class="subtitle">Analyze and Optimize Your Social Media Performance With Trusted Calculations</p>
+
+        <!-- Organic Section -->
+        <section class="calculator-section" id="organic">
+            <h2>Organic Metrics</h2>
+            <form action="/" method="POST">
+                <input type="hidden" name="form_type" value="organic">
+                <table class="input-table">
+                    <tr>
+                        <th>Metric</th>
+                        <th>Value</th>
+                        <th>Explanation</th>
+                    </tr>
+                    <tr>
+                        <td>Reach</td>
+                        <td><input type="number" id="reach" name="reach" class="input-field" value="{{ form_data.reach or '' }}"></td>
+                        <td>The total number of unique users who saw your content.</td>
+                    </tr>
+                    <tr>
+                        <td>Impressions</td>
+                        <td><input type="number" id="impressions" name="impressions" class="input-field" value="{{ form_data.impressions or '' }}"></td>
+                        <td>The total number of times your content was displayed.</td>
+                    </tr>
+                    <tr>
+                        <td>Followers</td>
+                        <td><input type="number" id="followers" name="followers" class="input-field" value="{{ form_data.followers or '' }}"></td>
+                        <td>The number of followers for your account.</td>
+                    </tr>
+                    <tr>
+                        <td>Likes</td>
+                        <td><input type="number" id="likes" name="likes" class="input-field" value="{{ form_data.likes or '' }}"></td>
+                        <td>Total likes on your content.</td>
+                    </tr>
+                    <tr>
+                        <td>Comments</td>
+                        <td><input type="number" id="comments" name="comments" class="input-field" value="{{ form_data.comments or '' }}"></td>
+                        <td>Total comments on your content.</td>
+                    </tr>
+                    <tr>
+                        <td>Shares</td>
+                        <td><input type="number" id="shares" name="shares" class="input-field" value="{{ form_data.shares or '' }}"></td>
+                        <td>Total shares of your content.</td>
+                    </tr>
+                    <tr>
+                        <td>Saves</td>
+                        <td><input type="number" id="saves" name="saves" class="input-field" value="{{ form_data.saves or '' }}"></td>
+                        <td>Total saves of your content.</td>
+                    </tr>
+                    <tr>
+                        <td>Link Clicks</td>
+                        <td><input type="number" id="link_clicks" name="link_clicks" class="input-field" value="{{ form_data.link_clicks or '' }}"></td>
+                        <td>Total link clicks on your content.</td>
+                    </tr>
+                </table>
+                <button type="submit" class="submit-btn">Calculate Organic Metrics</button>
+            </form>
+
+            <!-- Organic Results -->
+            <div id="organic-results">
+                <h3>Results</h3>
+                <ul>
+                    <li>
+                        <strong>Engagement Rate by Reach:</strong>
+                        <input type="text" class="output-field" readonly value="{{ organic_results.engagement_by_reach if organic_results else '' }}">
+                        <span class="explanation">(Engagements ÷ Reach) × 100</span>
+                    </li>
+                    <li>
+                        <strong>Engagement Rate by Impressions:</strong>
+                        <input type="text" class="output-field" readonly value="{{ organic_results.engagement_by_impressions if organic_results else '' }}">
+                        <span class="explanation">(Engagements ÷ Impressions) × 100</span>
+                    </li>
+                    <li>
+                        <strong>Engagement Rate by Followers:</strong>
+                        <input type="text" class="output-field" readonly value="{{ organic_results.engagement_by_followers if organic_results else '' }}">
+                        <span class="explanation">(Engagements ÷ Followers) × 100</span>
+                    </li>
+                    <li>
+                        <strong>Discovery Rate:</strong>
+                        <input type="text" class="output-field" readonly value="{{ organic_results.discovery_rate if organic_results else '' }}">
+                        <span class="explanation">(Shares ÷ Reach) × 100</span>
+                    </li>
+                    <li>
+                        <strong>Click Rate:</strong>
+                        <input type="text" class="output-field" readonly value="{{ organic_results.click_rate if organic_results else '' }}">
+                        <span class="explanation">(Link Clicks ÷ Reach) × 100</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Paid Section -->
+        <section class="calculator-section" id="paid">
+            <h2>Paid Metrics</h2>
+            <form action="/" method="POST">
+                <input type="hidden" name="form_type" value="paid">
+                <table class="input-table">
+                    <tr>
+                        <th>Metric</th>
+                        <th>Value</th>
+                        <th>Explanation</th>
+                    </tr>
+                    <tr>
+                        <td>Impressions</td>
+                        <td><input type="number" id="impressions_paid" name="impressions_paid" class="input-field" value="{{ form_data.impressions_paid or '' }}"></td>
+                        <td>Total number of times your ad was displayed.</td>
+                    </tr>
+                    <tr>
+                        <td>Clicks</td>
+                        <td><input type="number" id="clicks" name="clicks" class="input-field" value="{{ form_data.clicks or '' }}"></td>
+                        <td>Total clicks on your ad.</td>
+                    </tr>
+                    <tr>
+                        <td>Results</td>
+                        <td><input type="number" id="results" name="results" class="input-field" value="{{ form_data.results or '' }}"></td>
+                        <td>Number of desired outcomes.</td>
+                    </tr>
+                    <tr>
+                        <td>Spend</td>
+                        <td><input type="number" id="spend" name="spend" class="input-field" value="{{ form_data.spend or '' }}"></td>
+                        <td>Total amount spent on the campaign.</td>
+                    </tr>
+                </table>
+                <button type="submit" class="submit-btn">Calculate Paid Metrics</button>
+            </form>
+
+            <!-- Paid Results -->
+            <div id="paid-results">
+                <h3>Results</h3>
+                <ul>
+                    <li>
+                        <strong>CTR:</strong>
+                        <input type="text" class="output-field" readonly value="{{ paid_results.ctr if paid_results else '' }}">
+                        <span class="explanation">(Clicks ÷ Impressions) × 100</span>
+                    </li>
+                    <li>
+                        <strong>CPC:</strong>
+                        <input type="text" class="output-field" readonly value="{{ paid_results.cpc if paid_results else '' }}">
+                        <span class="explanation">(Spend ÷ Clicks)</span>
+                    </li>
+                    <li>
+                        <strong>CPR:</strong>
+                        <input type="text" class="output-field" readonly value="{{ paid_results.cpr if paid_results else '' }}">
+                        <span class="explanation">(Spend ÷ Results)</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

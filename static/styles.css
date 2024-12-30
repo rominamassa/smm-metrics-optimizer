@@ -1,0 +1,103 @@
+/* General reset */
+body {
+    font-family: Arial, sans-serif;
+    background: #4ca1af; /* Mediterranean ocean color */
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+}
+
+.calculator-section {
+    background-color: rgba(255, 255, 255, 0.2); /* Transparent background for contrast */
+    padding: 20px;
+    margin-bottom: 40px;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.input-table {
+    width: 100%;
+    margin-bottom: 20px;
+    border-collapse: separate;
+    border-spacing: 10px;
+}
+
+.input-table th, .input-table td {
+    text-align: left;
+    padding: 10px;
+}
+
+label {
+    font-size: 1.1em;
+}
+
+.input-field {
+    width: 80px;
+    height: 30px;
+    font-size: 1em;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.submit-btn {
+    background-color: #3b6978; /* Darker ocean blue */
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: #204051; /* Even darker blue */
+}
+
+#organic-results, #paid-results {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    font-size: 1.1em;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+.explanation {
+    font-size: 0.9em;
+    color: #ddd;
+    display: inline-block;
+    margin-left: 5px;
+    font-style: italic;
+}
