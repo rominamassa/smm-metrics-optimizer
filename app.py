@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+import os
 
 app = Flask(__name__, static_folder='static')  # Explicitly set the static folder
 
@@ -76,4 +77,5 @@ def index():
     return render_template('index.html', organic_results=organic_results, paid_results=paid_results, form_data=form_data)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))  # Use Heroku's $PORT or default to 5000
+    app.run(host='0.0.0.0', port=port, debug=True)
