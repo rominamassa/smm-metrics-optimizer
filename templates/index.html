@@ -5,24 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Social Media Metrics Calculator: Organic and Paid</title>
     <link rel="stylesheet" href="/static/styles.css">
-    <script src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
 </head>
 <body>
     <div class="container">
         <h1>Social Media Metrics Calculator: Organic and Paid</h1>
         <p class="subtitle">Analyze and Optimize Your Social Media Performance With Trusted Calculations</p>
 
-        <!-- LinkedIn Badge -->
-        <div class="badge-container" style="position: fixed; top: 10px; right: 10px;">
-            <div class="badge-base LI-profile-badge" 
-                data-locale="en_US" 
-                data-size="medium" 
-                data-theme="light" 
-                data-type="HORIZONTAL" 
-                data-vanity="rominamassa" 
-                data-version="v1">
-                <a class="badge-base__link LI-simple-link" href="https://www.linkedin.com/in/rominamassa?trk=profile-badge">Romina Massa</a>
-            </div>
+        <!-- Sharing Interface (Top) -->
+        <div class="sharing-interface" style="text-align: center; margin: 20px 0;">
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://smm-metrics-optimizer.herokuapp.com" target="_blank" style="margin-right: 10px;">Share on LinkedIn</a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://smm-metrics-optimizer.herokuapp.com" target="_blank" style="margin-right: 10px;">Share on Facebook</a>
+            <a href="https://twitter.com/intent/tweet?url=https://smm-metrics-optimizer.herokuapp.com&text=Check%20out%20this%20awesome%20Social%20Media%20Metrics%20Calculator!" target="_blank" style="margin-right: 10px;">Share on X</a>
+            <a href="mailto:?subject=Social%20Media%20Metrics%20Calculator&body=Check%20out%20this%20awesome%20tool:%20https://smm-metrics-optimizer.herokuapp.com" target="_blank">Share via Email</a>
         </div>
 
         <!-- Organic Section -->
@@ -92,10 +86,7 @@
                     <li>
                         <strong>Engagement Rate by Impressions:</strong>
                         <input type="text" class="output-field" readonly value="{{ organic_results.engagement_by_impressions if organic_results else '' }}">
-                        <span class="explanation">(Engagements ÷ Impressions
-
-```html
-) × 100</span>
+                        <span class="explanation">(Engagements ÷ Impressions) × 100</span>
                     </li>
                     <li>
                         <strong>Engagement Rate by Followers:</strong>
@@ -116,63 +107,13 @@
             </div>
         </section>
 
-        <!-- Paid Section -->
-        <section class="calculator-section" id="paid">
-            <h2>Paid Metrics</h2>
-            <form action="/" method="POST">
-                <input type="hidden" name="form_type" value="paid">
-                <table class="input-table">
-                    <tr>
-                        <th>Metric</th>
-                        <th>Value</th>
-                        <th>Explanation</th>
-                    </tr>
-                    <tr>
-                        <td>Impressions</td>
-                        <td><input type="number" id="impressions_paid" name="impressions_paid" class="input-field" value="{{ form_data.impressions_paid or '' }}"></td>
-                        <td>Total number of times your ad was displayed.</td>
-                    </tr>
-                    <tr>
-                        <td>Clicks</td>
-                        <td><input type="number" id="clicks" name="clicks" class="input-field" value="{{ form_data.clicks or '' }}"></td>
-                        <td>Total clicks on your ad.</td>
-                    </tr>
-                    <tr>
-                        <td>Results</td>
-                        <td><input type="number" id="results" name="results" class="input-field" value="{{ form_data.results or '' }}"></td>
-                        <td>Number of desired outcomes.</td>
-                    </tr>
-                    <tr>
-                        <td>Spend</td>
-                        <td><input type="number" id="spend" name="spend" class="input-field" value="{{ form_data.spend or '' }}"></td>
-                        <td>Total amount spent on the campaign.</td>
-                    </tr>
-                </table>
-                <button type="submit" class="submit-btn">Calculate Paid Metrics</button>
-            </form>
-
-            <!-- Paid Results -->
-            <div id="paid-results">
-                <h3>Results</h3>
-                <ul>
-                    <li>
-                        <strong>CTR:</strong>
-                        <input type="text" class="output-field" readonly value="{{ paid_results.ctr if paid_results else '' }}">
-                        <span class="explanation">(Clicks ÷ Impressions) × 100</span>
-                    </li>
-                    <li>
-                        <strong>CPC:</strong>
-                        <input type="text" class="output-field" readonly value="{{ paid_results.cpc if paid_results else '' }}">
-                        <span class="explanation">(Spend ÷ Clicks)</span>
-                    </li>
-                    <li>
-                        <strong>CPR:</strong>
-                        <input type="text" class="output-field" readonly value="{{ paid_results.cpr if paid_results else '' }}">
-                        <span class="explanation">(Spend ÷ Results)</span>
-                    </li>
-                </ul>
-            </div>
-        </section>
+        <!-- Sharing Interface (Bottom) -->
+        <div class="sharing-interface" style="text-align: center; margin: 20px 0;">
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://smm-metrics-optimizer.herokuapp.com" target="_blank" style="margin-right: 10px;">Share on LinkedIn</a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://smm-metrics-optimizer.herokuapp.com" target="_blank" style="margin-right: 10px;">Share on Facebook</a>
+            <a href="https://twitter.com/intent/tweet?url=https://smm-metrics-optimizer.herokuapp.com&text=Check%20out%20this%20awesome%20Social%20Media%20Metrics%20Calculator!" target="_blank" style="margin-right: 10px;">Share on X</a>
+            <a href="mailto:?subject=Social%20Media%20Metrics%20Calculator&body=Check%20out%20this%20awesome%20tool:%20https://smm-metrics-optimizer.herokuapp.com" target="_blank">Share via Email</a>
+        </div>
     </div>
 </body>
 </html>
