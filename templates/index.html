@@ -146,7 +146,62 @@
         </div>
 
         <!-- Paid Metrics Section -->
-        <!-- [Paid Metrics Content Goes Here...] -->
+        <section class="calculator-section" id="paid">
+            <h2>Paid Metrics</h2>
+            <form action="/" method="POST">
+                <input type="hidden" name="form_type" value="paid">
+                <table class="input-table">
+                    <tr>
+                        <th>Metric</th>
+                        <th>Value</th>
+                        <th>Explanation</th>
+                    </tr>
+                    <tr>
+                        <td>Impressions</td>
+                        <td><input type="number" id="impressions_paid" name="impressions_paid" class="input-field" value="{{ form_data.impressions_paid or '' }}"></td>
+                        <td>Total number of times your ad was displayed.</td>
+                    </tr>
+                    <tr>
+                        <td>Clicks</td>
+                        <td><input type="number" id="clicks" name="clicks" class="input-field" value="{{ form_data.clicks or '' }}"></td>
+                        <td>Total clicks on your ad.</td>
+                    </tr>
+                    <tr>
+                        <td>Results</td>
+                        <td><input type="number" id="results" name="results" class="input-field" value="{{ form_data.results or '' }}"></td>
+                        <td>Number of desired outcomes.</td>
+                    </tr>
+                    <tr>
+                        <td>Spend</td>
+                        <td><input type="number" id="spend" name="spend" class="input-field" value="{{ form_data.spend or '' }}"></td>
+                        <td>Total amount spent on the campaign/ad set/ad.</td>
+                    </tr>
+                </table>
+                <button type="submit" class="submit-btn">Calculate Paid Metrics</button>
+            </form>
+
+            <!-- Paid Results -->
+            <div id="paid-results">
+                <h3>Results</h3>
+                <ul>
+                    <li>
+                        <strong>CTR:</strong>
+                        <input type="text" class="output-field" readonly value="{{ paid_results.ctr if paid_results else '' }}">
+                        <span class="explanation">(Clicks ÷ Impressions) × 100</span>
+                    </li>
+                    <li>
+                        <strong>CPC:</strong>
+                        <input type="text" class="output-field" readonly value="{{ paid_results.cpc if paid_results else '' }}">
+                        <span class="explanation">(Spend ÷ Clicks)</span>
+                    </li>
+                    <li>
+                        <strong>CPR:</strong>
+                        <input type="text" class="output-field" readonly value="{{ paid_results.cpr if paid_results else '' }}">
+                        <span class="explanation">(Spend ÷ Results)</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
 
         <!-- Sharing Interface (Bottom) -->
         <div class="sharing-interface">
