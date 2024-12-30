@@ -6,10 +6,29 @@
     <title>Social Media Metrics Calculator: Organic and Paid</title>
     <link rel="stylesheet" href="/static/styles.css">
     <script src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
+    <style>
+        /* Fix LinkedIn badge spacing */
+        .badge-container {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 10;
+        }
+        /* Add spacing around sharing buttons */
+        .sharing-interface {
+            text-align: center;
+            margin: 40px 0;
+        }
+        .sharing-interface a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #000;
+        }
+    </style>
 </head>
 <body>
     <!-- LinkedIn Badge (Fixed at Top-Right) -->
-    <div class="badge-container" style="position: fixed; top: 10px; right: 10px;">
+    <div class="badge-container">
         <div class="badge-base LI-profile-badge" 
             data-locale="en_US" 
             data-size="medium" 
@@ -26,21 +45,106 @@
         <p class="subtitle">Analyze and Optimize Your Social Media Performance With Trusted Calculations</p>
 
         <!-- Sharing Interface (Top) -->
-        <div class="sharing-interface" style="text-align: center; margin: 20px 0;">
-            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://smm-metrics-optimizer.herokuapp.com" target="_blank" style="margin-right: 10px;">Share on LinkedIn</a>
-            <a href="https://www.facebook.com/sharer/sharer.php?u=https://smm-metrics-optimizer.herokuapp.com" target="_blank" style="margin-right: 10px;">Share on Facebook</a>
-            <a href="https://twitter.com/intent/tweet?url=https://smm-metrics-optimizer.herokuapp.com&text=Check%20out%20this%20awesome%20Social%20Media%20Metrics%20Calculator!" target="_blank" style="margin-right: 10px;">Share on X</a>
+        <div class="sharing-interface">
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://smm-metrics-optimizer.herokuapp.com" target="_blank">Share on LinkedIn</a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://smm-metrics-optimizer.herokuapp.com" target="_blank">Share on Facebook</a>
+            <a href="https://twitter.com/intent/tweet?url=https://smm-metrics-optimizer.herokuapp.com&text=Check%20out%20this%20awesome%20Social%20Media%20Metrics%20Calculator!" target="_blank">Share on X</a>
             <a href="mailto:?subject=Social%20Media%20Metrics%20Calculator&body=Check%20out%20this%20awesome%20tool:%20https://smm-metrics-optimizer.herokuapp.com" target="_blank">Share via Email</a>
         </div>
 
-        <!-- Organic Section -->
-        <!-- [Content for Organic and Paid Metrics Section Goes Here...] -->
+        <!-- Organic Metrics Section -->
+        <section class="calculator-section" id="organic">
+            <h2>Organic Metrics</h2>
+            <form action="/" method="POST">
+                <input type="hidden" name="form_type" value="organic">
+                <table class="input-table">
+                    <tr>
+                        <th>Metric</th>
+                        <th>Value</th>
+                        <th>Explanation</th>
+                    </tr>
+                    <tr>
+                        <td>Reach</td>
+                        <td><input type="number" id="reach" name="reach" class="input-field" value="{{ form_data.reach or '' }}"></td>
+                        <td>The total number of unique users who saw your content.</td>
+                    </tr>
+                    <tr>
+                        <td>Impressions</td>
+                        <td><input type="number" id="impressions" name="impressions" class="input-field" value="{{ form_data.impressions or '' }}"></td>
+                        <td>The total number of times your content was displayed.</td>
+                    </tr>
+                    <tr>
+                        <td>Followers</td>
+                        <td><input type="number" id="followers" name="followers" class="input-field" value="{{ form_data.followers or '' }}"></td>
+                        <td>The number of followers for your account.</td>
+                    </tr>
+                    <tr>
+                        <td>Likes</td>
+                        <td><input type="number" id="likes" name="likes" class="input-field" value="{{ form_data.likes or '' }}"></td>
+                        <td>Total likes on your content.</td>
+                    </tr>
+                    <tr>
+                        <td>Comments</td>
+                        <td><input type="number" id="comments" name="comments" class="input-field" value="{{ form_data.comments or '' }}"></td>
+                        <td>Total comments on your content.</td>
+                    </tr>
+                    <tr>
+                        <td>Shares</td>
+                        <td><input type="number" id="shares" name="shares" class="input-field" value="{{ form_data.shares or '' }}"></td>
+                        <td>Total shares of your content.</td>
+                    </tr>
+                    <tr>
+                        <td>Saves</td>
+                        <td><input type="number" id="saves" name="saves" class="input-field" value="{{ form_data.saves or '' }}"></td>
+                        <td>Total saves of your content.</td>
+                    </tr>
+                    <tr>
+                        <td>Link Clicks</td>
+                        <td><input type="number" id="link_clicks" name="link_clicks" class="input-field" value="{{ form_data.link_clicks or '' }}"></td>
+                        <td>Total link clicks on your content.</td>
+                    </tr>
+                </table>
+                <button type="submit" class="submit-btn">Calculate Organic Metrics</button>
+            </form>
+
+            <!-- Organic Results -->
+            <div id="organic-results">
+                <h3>Results</h3>
+                <ul>
+                    <li>
+                        <strong>Engagement Rate by Reach:</strong>
+                        <input type="text" class="output-field" readonly value="{{ organic_results.engagement_by_reach if organic_results else '' }}">
+                        <span class="explanation">(Engagements ÷ Reach) × 100</span>
+                    </li>
+                    <li>
+                        <strong>Engagement Rate by Impressions:</strong>
+                        <input type="text" class="output-field" readonly value="{{ organic_results.engagement_by_impressions if organic_results else '' }}">
+                        <span class="explanation">(Engagements ÷ Impressions) × 100</span>
+                    </li>
+                    <li>
+                        <strong>Engagement Rate by Followers:</strong>
+                        <input type="text" class="output-field" readonly value="{{ organic_results.engagement_by_followers if organic_results else '' }}">
+                        <span class="explanation">(Engagements ÷ Followers) × 100</span>
+                    </li>
+                    <li>
+                        <strong>Discovery Rate:</strong>
+                        <input type="text" class="output-field" readonly value="{{ organic_results.discovery_rate if organic_results else '' }}">
+                        <span class="explanation">(Shares ÷ Reach) × 100</span>
+                    </li>
+                    <li>
+                        <strong>Click Rate:</strong>
+                        <input type="text" class="output-field" readonly value="{{ organic_results.click_rate if organic_results else '' }}">
+                        <span class="explanation">(Link Clicks ÷ Reach) × 100</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
 
         <!-- Sharing Interface (Bottom) -->
-        <div class="sharing-interface" style="text-align: center; margin: 20px 0;">
-            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://smm-metrics-optimizer.herokuapp.com" target="_blank" style="margin-right: 10px;">Share on LinkedIn</a>
-            <a href="https://www.facebook.com/sharer/sharer.php?u=https://smm-metrics-optimizer.herokuapp.com" target="_blank" style="margin-right: 10px;">Share on Facebook</a>
-            <a href="https://twitter.com/intent/tweet?url=https://smm-metrics-optimizer.herokuapp.com&text=Check%20out%20this%20awesome%20Social%20Media%20Metrics%20Calculator!" target="_blank" style="margin-right: 10px;">Share on X</a>
+        <div class="sharing-interface">
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://smm-metrics-optimizer.herokuapp.com" target="_blank">Share on LinkedIn</a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://smm-metrics-optimizer.herokuapp.com" target="_blank">Share on Facebook</a>
+            <a href="https://twitter.com/intent/tweet?url=https://smm-metrics-optimizer.herokuapp.com&text=Check%20out%20this%20awesome%20Social%20Media%20Metrics%20Calculator!" target="_blank">Share on X</a>
             <a href="mailto:?subject=Social%20Media%20Metrics%20Calculator&body=Check%20out%20this%20awesome%20tool:%20https://smm-metrics-optimizer.herokuapp.com" target="_blank">Share via Email</a>
         </div>
     </div>
