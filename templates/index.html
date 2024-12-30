@@ -5,11 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Social Media Metrics Calculator: Organic and Paid</title>
     <link rel="stylesheet" href="/static/styles.css">
+    <script src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
 </head>
 <body>
     <div class="container">
         <h1>Social Media Metrics Calculator: Organic and Paid</h1>
         <p class="subtitle">Analyze and Optimize Your Social Media Performance With Trusted Calculations</p>
+
+        <!-- LinkedIn Badge -->
+        <div class="badge-container" style="position: fixed; top: 10px; right: 10px;">
+            <div class="badge-base LI-profile-badge" 
+                data-locale="en_US" 
+                data-size="medium" 
+                data-theme="light" 
+                data-type="HORIZONTAL" 
+                data-vanity="rominamassa" 
+                data-version="v1">
+                <a class="badge-base__link LI-simple-link" href="https://www.linkedin.com/in/rominamassa?trk=profile-badge">Romina Massa</a>
+            </div>
+        </div>
 
         <!-- Organic Section -->
         <section class="calculator-section" id="organic">
@@ -78,7 +92,10 @@
                     <li>
                         <strong>Engagement Rate by Impressions:</strong>
                         <input type="text" class="output-field" readonly value="{{ organic_results.engagement_by_impressions if organic_results else '' }}">
-                        <span class="explanation">(Engagements ÷ Impressions) × 100</span>
+                        <span class="explanation">(Engagements ÷ Impressions
+
+```html
+) × 100</span>
                     </li>
                     <li>
                         <strong>Engagement Rate by Followers:</strong>
