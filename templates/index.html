@@ -8,8 +8,8 @@
     <script src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
     <style>
         .badge-container {
-            margin-top: 20px; /* Adds spacing at the top */
-            text-align: right; /* Aligns the badge to the right */
+            margin-top: 20px;
+            text-align: right;
         }
         .sharing-interface {
             text-align: center;
@@ -66,17 +66,17 @@
                     <tr>
                         <td>Reach</td>
                         <td><input type="number" id="reach" name="reach" class="input-field" value="{{ form_data.reach or '' }}"></td>
-                        <td>The total number of unique users who saw your content.</td>
+                        <td>Total unique users who saw your content.</td>
                     </tr>
                     <tr>
                         <td>Impressions</td>
                         <td><input type="number" id="impressions" name="impressions" class="input-field" value="{{ form_data.impressions or '' }}"></td>
-                        <td>The total number of times your content was displayed.</td>
+                        <td>Total times your content was displayed.</td>
                     </tr>
                     <tr>
                         <td>Followers</td>
                         <td><input type="number" id="followers" name="followers" class="input-field" value="{{ form_data.followers or '' }}"></td>
-                        <td>The number of followers for your account.</td>
+                        <td>Number of account followers.</td>
                     </tr>
                     <tr>
                         <td>Likes</td>
@@ -107,42 +107,27 @@
                 <button type="submit" class="submit-btn">Calculate Organic Metrics</button>
             </form>
 
-            <!-- Organic Results -->
             <div id="organic-results">
                 <h3>Results</h3>
                 <ul>
-                    <li>
-                        <strong>Engagement Rate by Reach:</strong>
-                        <input type="text" class="output-field" readonly value="{{ organic_results.engagement_by_reach if organic_results else '' }}">
-                        <span class="explanation">(Engagements ÷ Reach) × 100</span>
-                    </li>
-                    <li>
-                        <strong>Engagement Rate by Impressions:</strong>
-                        <input type="text" class="output-field" readonly value="{{ organic_results.engagement_by_impressions if organic_results else '' }}">
-                        <span class="explanation">(Engagements ÷ Impressions) × 100</span>
-                    </li>
-                    <li>
-                        <strong>Engagement Rate by Followers:</strong>
-                        <input type="text" class="output-field" readonly value="{{ organic_results.engagement_by_followers if organic_results else '' }}">
-                        <span class="explanation">(Engagements ÷ Followers) × 100</span>
-                    </li>
-                    <li>
-                        <strong>Discovery Rate:</strong>
-                        <input type="text" class="output-field" readonly value="{{ organic_results.discovery_rate if organic_results else '' }}">
-                        <span class="explanation">(Shares ÷ Reach) × 100</span>
-                    </li>
-                    <li>
-                        <strong>Click Rate:</strong>
-                        <input type="text" class="output-field" readonly value="{{ organic_results.click_rate if organic_results else '' }}">
-                        <span class="explanation">(Link Clicks ÷ Reach) × 100</span>
-                    </li>
+                    <li><strong>Engagement Rate by Reach:</strong> <input type="text" readonly></li>
+                    <li><strong>Engagement Rate by Impressions:</strong> <input type="text" readonly></li>
+                    <li><strong>Discovery Rate:</strong> <input type="text" readonly></li>
                 </ul>
             </div>
         </section>
 
-        <!-- Fiverr Embed -->
+        <!-- Fiverr Gig Embed -->
         <div class="fiverr-embed">
-            <iframe src="https://www.fiverr.com/s/kLAbbzW" width="600" height="400" frameborder="0"></iframe>
+            <iframe 
+                src="https://www.fiverr.com/s/wk9lV5B" 
+                loading="lazy" 
+                class="fiverr_nga_frame" 
+                frameborder="0" 
+                height="350" 
+                width="100%" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
         </div>
 
         <!-- Paid Metrics Section -->
@@ -158,47 +143,34 @@
                     </tr>
                     <tr>
                         <td>Impressions</td>
-                        <td><input type="number" id="impressions_paid" name="impressions_paid" class="input-field" value="{{ form_data.impressions_paid or '' }}"></td>
-                        <td>Total number of times your ad was displayed.</td>
+                        <td><input type="number" id="paid_impressions" name="paid_impressions"></td>
+                        <td>Total impressions.</td>
                     </tr>
                     <tr>
                         <td>Clicks</td>
-                        <td><input type="number" id="clicks" name="clicks" class="input-field" value="{{ form_data.clicks or '' }}"></td>
-                        <td>Total clicks on your ad.</td>
+                        <td><input type="number" id="clicks" name="clicks"></td>
+                        <td>Total clicks.</td>
                     </tr>
                     <tr>
                         <td>Results</td>
-                        <td><input type="number" id="results" name="results" class="input-field" value="{{ form_data.results or '' }}"></td>
-                        <td>Number of desired outcomes.</td>
+                        <td><input type="number" id="results" name="results"></td>
+                        <td>Total results.</td>
                     </tr>
                     <tr>
                         <td>Spend</td>
-                        <td><input type="number" id="spend" name="spend" class="input-field" value="{{ form_data.spend or '' }}"></td>
-                        <td>Total amount spent on the campaign/ad set/ad.</td>
+                        <td><input type="number" id="spend" name="spend"></td>
+                        <td>Total ad/ad set/campaign spend.</td>
                     </tr>
                 </table>
                 <button type="submit" class="submit-btn">Calculate Paid Metrics</button>
             </form>
 
-            <!-- Paid Results -->
             <div id="paid-results">
                 <h3>Results</h3>
                 <ul>
-                    <li>
-                        <strong>CTR:</strong>
-                        <input type="text" class="output-field" readonly value="{{ paid_results.ctr if paid_results else '' }}">
-                        <span class="explanation">(Clicks ÷ Impressions) × 100</span>
-                    </li>
-                    <li>
-                        <strong>CPC:</strong>
-                        <input type="text" class="output-field" readonly value="{{ paid_results.cpc if paid_results else '' }}">
-                        <span class="explanation">(Spend ÷ Clicks)</span>
-                    </li>
-                    <li>
-                        <strong>CPR:</strong>
-                        <input type="text" class="output-field" readonly value="{{ paid_results.cpr if paid_results else '' }}">
-                        <span class="explanation">(Spend ÷ Results)</span>
-                    </li>
+                    <li><strong>CTR:</strong> <input type="text" readonly></li>
+                    <li><strong>CPC:</strong> <input type="text" readonly></li>
+                    <li><strong>CPR:</strong> <input type="text" readonly></li>
                 </ul>
             </div>
         </section>
@@ -213,3 +185,5 @@
     </div>
 </body>
 </html>
+
+
