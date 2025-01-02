@@ -7,9 +7,10 @@
     <link rel="stylesheet" href="/static/styles.css">
     <script src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
     <style>
+        /* Existing styles retained */
         .badge-container {
             margin-top: 20px;
-            text-align: center; /* Center the LinkedIn badge */
+            text-align: right; /* Badge stays right-aligned unless overridden below */
         }
         .fiverr-link {
             text-align: center;
@@ -24,10 +25,50 @@
         .fiverr-link a:hover {
             color: #4ca1af;
         }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            body {
+                font-size: 14px; /* Adjust text size */
+            }
+
+            .container {
+                padding: 10px; /* Reduce padding */
+            }
+
+            .input-table {
+                width: 100%; /* Tables adapt to screen size */
+                font-size: 12px; /* Smaller font for inputs */
+            }
+
+            .input-table th, .input-table td {
+                padding: 5px; /* Adjust cell padding */
+            }
+
+            .submit-btn {
+                width: 100%; /* Buttons take full width */
+            }
+
+            .sharing-interface {
+                display: flex;
+                flex-direction: column; /* Stack share icons vertically */
+                margin: 20px 0;
+            }
+
+            .sharing-interface img {
+                margin: 5px auto; /* Center icons */
+                width: 24px; /* Resize icons */
+                height: 24px;
+            }
+
+            .badge-container {
+                text-align: center; /* Center the LinkedIn badge */
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- LinkedIn Badge (Static at Top, Centered) -->
+    <!-- LinkedIn Badge -->
     <div class="badge-container">
         <div class="badge-base LI-profile-badge" 
             data-locale="en_US" 
@@ -47,16 +88,16 @@
         <!-- Sharing Interface (Top) -->
         <div class="sharing-interface">
             <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://smm-metrics-optimizer.herokuapp.com" target="_blank">
-                <img src="https://cdn-icons-png.flaticon.com/512/145/145807.png" alt="Share on LinkedIn">
+                Share on LinkedIn
             </a>
             <a href="https://www.facebook.com/sharer/sharer.php?u=https://smm-metrics-optimizer.herokuapp.com" target="_blank">
-                <img src="https://cdn-icons-png.flaticon.com/512/145/145802.png" alt="Share on Facebook">
+                Share on Facebook
             </a>
             <a href="https://twitter.com/intent/tweet?url=https://smm-metrics-optimizer.herokuapp.com&text=Check%20out%20this%20awesome%20Social%20Media%20Metrics%20Calculator!" target="_blank">
-                <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Share on X">
+                Share on X
             </a>
             <a href="mailto:?subject=Social%20Media%20Metrics%20Calculator&body=Check%20out%20this%20awesome%20tool:%20https://smm-metrics-optimizer.herokuapp.com" target="_blank">
-                <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Share via Email">
+                Share via Email
             </a>
         </div>
 
@@ -118,11 +159,11 @@
             <div id="organic-results">
                 <h3>Results</h3>
                 <ul>
-                    <li><strong>Engagement Rate by Reach:</strong> <input type="text" readonly><br> ((Likes + Comments + Shares + Saves + Link Clicks) ÷ Reach) × 100</li>
-                    <li><strong>Engagement Rate by Impressions:</strong> <input type="text" readonly><br> ((Likes + Comments + Shares + Saves + Link Clicks) ÷ Impressions) × 100</li>
-                    <li><strong>Engagement Rate by Followers:</strong> <input type="text" readonly><br> ((Likes + Comments + Shares + Saves + Link Clicks) ÷ Followers) × 100</li>
-                    <li><strong>Discovery Rate:</strong> <input type="text" readonly><br> (Shares ÷ Reach) × 100</li>
-                    <li><strong>Click Rate:</strong> <input type="text" readonly><br> (Link Clicks ÷ Reach) × 100</li>
+                    <li><strong>Engagement Rate by Reach:</strong> ((Likes + Comments + Shares + Saves + Link Clicks) ÷ Reach) × 100</li>
+                    <li><strong>Engagement Rate by Impressions:</strong> ((Likes + Comments + Shares + Saves + Link Clicks) ÷ Impressions) × 100</li>
+                    <li><strong>Engagement Rate by Followers:</strong> ((Likes + Comments + Shares + Saves + Link Clicks) ÷ Followers) × 100</li>
+                    <li><strong>Discovery Rate:</strong> (Shares ÷ Reach) × 100</li>
+                    <li><strong>Click Rate:</strong> (Link Clicks ÷ Reach) × 100</li>
                 </ul>
             </div>
         </section>
@@ -172,9 +213,9 @@
             <div id="paid-results">
                 <h3>Results</h3>
                 <ul>
-                    <li><strong>CTR:</strong> <input type="text" readonly><br> (Clicks ÷ Impressions) × 100</li>
-                    <li><strong>CPC:</strong> <input type="text" readonly><br> Spend ÷ Clicks</li>
-                    <li><strong>CPR:</strong> <input type="text" readonly><br> Spend ÷ Results</li>
+                    <li><strong>CTR:</strong> (Clicks ÷ Impressions) × 100</li>
+                    <li><strong>CPC:</strong> Spend ÷ Clicks</li>
+                    <li><strong>CPR:</strong> Spend ÷ Results</li>
                 </ul>
             </div>
         </section>
@@ -182,16 +223,16 @@
         <!-- Sharing Interface (Bottom) -->
         <div class="sharing-interface">
             <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://smm-metrics-optimizer.herokuapp.com" target="_blank">
-                <img src="https://cdn-icons-png.flaticon.com/512/145/145807.png" alt="Share on LinkedIn">
+                Share on LinkedIn
             </a>
             <a href="https://www.facebook.com/sharer/sharer.php?u=https://smm-metrics-optimizer.herokuapp.com" target="_blank">
-                <img src="https://cdn-icons-png.flaticon.com/512/145/145802.png" alt="Share on Facebook">
+                Share on Facebook
             </a>
             <a href="https://twitter.com/intent/tweet?url=https://smm-metrics-optimizer.herokuapp.com&text=Check%20out%20this%20awesome%20Social%20Media%20Metrics%20Calculator!" target="_blank">
-                <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Share on X">
+                Share on X
             </a>
             <a href="mailto:?subject=Social%20Media%20Metrics%20Calculator&body=Check%20out%20this%20awesome%20tool:%20https://smm-metrics-optimizer.herokuapp.com" target="_blank">
-                <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Share via Email">
+                Share via Email
             </a>
         </div>
     </div>
