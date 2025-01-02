@@ -151,52 +151,50 @@
             </a>
         </div>
 
-        <!-- Paid Metrics Section -->
-        <section class="calculator-section" id="paid">
-            <h2>Paid Metrics</h2>
-            <form action="/" method="POST">
-                <input type="hidden" name="form_type" value="paid">
-                <table class="input-table">
-                    <tr>
-                        <th>Metric</th>
-                        <th>Input</th>
-                        <th>Explanation</th>
-                    </tr>
-                    <tr>
-                        <td>Impressions</td>
-                        <td><input type="number" id="paid_impressions" name="paid_impressions"></td>
-                        <td>Total ad/ad set/campaign impressions</td>
-                    </tr>
-                    <tr>
-                        <td>Clicks</td>
-                        <td><input type="number" id="clicks" name="clicks"></td>
-                        <td>Total clicks</td>
-                    </tr>
-                    <tr>
-                        <td>Results</td>
-                        <td><input type="number" id="results" name="results"></td>
-                        <td>Total results</td>
-                    </tr>
-                    <tr>
-                        <td>Spend</td>
-                        <td><input type="number" id="spend" name="spend"></td>
-                        <td>Total ad/ad set/campaign spend</td>
-                    </tr>
-                </table>
-                <button type="submit" class="submit-btn">Calculate Paid Metrics</button>
-            </form>
-
-            <div id="paid-results">
-                <h3>Results</h3>
-                <ul>
-                    <li><strong>CTR:</strong> <input type="text" readonly><br> (Clicks ÷ Impressions) × 100</li>
-                    <li><strong>CPC:</strong> <input type="text" readonly><br> Spend ÷ Clicks</li>
-                    <li><strong>CPR:</strong> <input type="text" readonly><br> Spend ÷ Results</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Sharing Interface (Bottom) -->
+<!-- Paid Metrics Section -->
+<section class="calculator-section" id="paid">
+    <h2>Paid Metrics</h2>
+    <form action="/" method="POST">
+        <input type="hidden" name="form_type" value="paid">
+        <table class="input-table">
+            <tr>
+                <th>Metric</th>
+                <th>Input</th>
+                <th>Explanation</th>
+            </tr>
+            <tr>
+                <td>Impressions</td>
+                <td><input type="number" id="paid_impressions" name="paid_impressions" class="input-field"></td>
+                <td>Total ad/ad set/campaign impressions</td>
+            </tr>
+            <tr>
+                <td>Clicks</td>
+                <td><input type="number" id="clicks" name="clicks" class="input-field"></td>
+                <td>Total clicks</td>
+            </tr>
+            <tr>
+                <td>Results</td>
+                <td><input type="number" id="results" name="results" class="input-field"></td>
+                <td>Total results</td>
+            </tr>
+            <tr>
+                <td>Spend</td>
+                <td><input type="number" id="spend" name="spend" class="input-field"></td>
+                <td>Total ad/ad set/campaign spend</td>
+            </tr>
+        </table>
+        <button type="submit" class="submit-btn">Calculate Paid Metrics</button>
+    </form>
+    <div id="paid-results">
+        <h3>Results</h3>
+        <ul>
+            <li><strong>CTR:</strong> <input type="text" readonly><br> (Clicks ÷ Impressions) × 100</li>
+            <li><strong>CPC:</strong> <input type="text" readonly><br> Spend ÷ Clicks</li>
+            <li><strong>CPR:</strong> <input type="text" readonly><br> Spend ÷ Results</li>
+        </ul>
+    </div>
+</section>
+<!-- Sharing Interface (Bottom) -->
         <div class="sharing-interface">
             <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://smm-metrics-optimizer.herokuapp.com" target="_blank">
                 <img src="https://cdn-icons-png.flaticon.com/512/145/145807.png" alt="Share on LinkedIn">
